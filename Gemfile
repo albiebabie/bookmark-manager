@@ -14,4 +14,5 @@ group :test, :development do
   gem 'rerun'
   gem 'rspec-sinatra'
   gem 'database_cleaner'
+  gem 'bcrypt'
 end
