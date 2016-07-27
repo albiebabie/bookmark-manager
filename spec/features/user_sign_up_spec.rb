@@ -1,10 +1,5 @@
 feature 'sign up' do
   scenario 'a user can sign up' do
-    visit '/users/new'
-    expect(page.status_code).to eq(200)
-    fill_in :user_email, with: 'example@example.com'
-    fill_in :password, with: 'password'
-    click_button('sign up')
     expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_content('Welcome example@example.com')
     expect(User.first.email).to eq('example@example.com')

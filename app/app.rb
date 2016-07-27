@@ -3,8 +3,10 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require_relative 'models/data_mapper_setup'
 
-
 class BookmarkManager < Sinatra::Base
+
+enable :sessions
+set :session_secret, 'super secret'
 
   get '/links' do
     @links = Link.all
@@ -18,7 +20,7 @@ class BookmarkManager < Sinatra::Base
   post '/links' do
     link = Link.create(url: params[:url],title: params[:title])
     params[:tags].split.each do |tag|
-      link.tags << Tag.create(name: tag)
+      link.tags << Tag.first_or_create(name: tag)
     end
     link.save
     redirect '/links'
@@ -35,7 +37,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/users' do
-    User.create(email: params[:user_email], password: params[:password])
+    user = User.create(email: params[:user_email], password: params[:password])
+    session[:user_id] = user.id
     redirect to('/links')
   end
 
