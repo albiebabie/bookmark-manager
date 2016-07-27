@@ -5,11 +5,17 @@
     <title></title>
   </head>
   <body>
-    The content we have here
+    <h1>Please enter the links that you want to bookmark</h1>
       <form action="/links" method="post" id="form">
-        <input type="text" name="url" >
-        <input type="text" name="title">
-        <input type="button" name="tag">
+        <label for="url"> Url
+          <input type="text" name="url" >
+        </label>
+        <label for="title"> Title
+          <input type="text" name="title">
+        </label>
+        <label for="tag"> Tag
+          <input type="text" name="tag">
+        </label>
         <input type="submit" name="name" value="submit">
       </form>
   </body>
