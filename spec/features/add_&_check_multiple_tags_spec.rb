@@ -8,6 +8,5 @@ feature 'tags' do
     click_button 'Add link'
     link = Link.first
     expect(link.tags.map(&:name)).to include('space', 'education')
-
   end
 end
