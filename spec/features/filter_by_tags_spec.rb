@@ -8,7 +8,7 @@ feature 'filter tags' do
     Link.create(url: 'http://www.bubblerus.co.uk', title: 'Bubbles R Us - UK', tags: [Tag.first_or_create(name: 'bubbles')] )
   end
 
-  scenario 'to be able to filter links by tags' do
+  scenario 'to be able to filter links by single tags' do
     visit '/tags/bubbles'
 
     expect(page.status_code).to eq(200)
