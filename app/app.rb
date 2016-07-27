@@ -8,7 +8,7 @@ class BookmarkManager < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    erb :'user/new'
+    erb :'users/new'
   end
 
   get '/links' do
