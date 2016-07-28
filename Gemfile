@@ -6,7 +6,8 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'rake'
-gem 'bcrypt'
+# gem 'bcrypt'
+gem 'sinatra-flash'
 
 group :test, :development do
   gem 'capybara'
