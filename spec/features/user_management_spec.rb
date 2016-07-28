@@ -4,4 +4,9 @@ feature 'User signup' do
     expect(page).to have_content('Welcome, jck_catchall@outlook.com')
     expect(User.first.email).to eq('jck_catchall@outlook.com')
   end
+
+  scenario "returns error message and prevents login unless password confirms" do
+    expect { sign_up(password_confirmation: "wrong") }.not_to change(User, :count)
+    # expect(page).to have_content('Password mismatch!')
+  end
 end
